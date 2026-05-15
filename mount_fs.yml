@@ -1,0 +1,13 @@
+---
+- name: Montar el filesystem
+  hosts: ubuntu_server
+  tasks:
+  - name: crear punto de montaje
+    ansible.builtin.file:
+      path: /datos
+      state: directory
+  - name: Montar sistema de archivos
+    ansible.posix.mount:
+      path: /datos
+      src: /dev/sdb1
+      fstype: ext4 

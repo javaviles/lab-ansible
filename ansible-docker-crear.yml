@@ -1,0 +1,10 @@
+---
+- name: Descargar Imagen Docker
+  hosts: ubuntu_server
+
+  tasks:
+  - name: Crear un contenedor con BusyBox
+    community.docker.docker_container:
+      name: contenerdor1
+      image: BusyBox
+      state: started

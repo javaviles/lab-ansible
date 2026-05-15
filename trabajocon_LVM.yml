@@ -1,0 +1,17 @@
+---
+- name: Trabajar con Volumenes logicos
+  hosts: rocky_server
+  tasks:
+  - name: Crear particion en el disco nvme0n2
+    community.general.parted:
+      device: /dev/nvme0n2
+      number: 1
+      part_end: 5GiB
+      state: present
+
+  - name: ver info disco
+    community.general.parted:
+      device: /dev/nvme0n2
+      state: info
+    register: datos
+

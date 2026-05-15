@@ -1,0 +1,11 @@
+---
+- name: Descargar Imagen Docker
+  hosts: ubuntu_server
+
+  tasks:
+  - name: Crear un contenedor interactivo con debian
+    community.docker.docker_container:
+      name: contenerdor_debian
+      image: debian
+      state: started
+      interactive: true

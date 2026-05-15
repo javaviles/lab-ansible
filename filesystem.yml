@@ -1,0 +1,9 @@
+---
+- name: Crean un sistema de archivos
+  hosts: ubuntu_server
+  tasks: 
+    - name: Crear sistema de archivos
+      community.general.filesystem:
+        dev: /dev/sdb1 # aqui debe ir la ruta del disco o dispositivo
+        fstype: ext4 # aqui el tipo de filesystem  que se desea
+        state: present # si deseo crearlo o eliminarlo ;)
